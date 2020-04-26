@@ -13,16 +13,15 @@ public class Factory{
      * @param mapType es la instancia que quiere
      * @return una instancia de un mapa
      */
-    public MyMap<String, String> getMyMap(String mapType){
+    public static MyMap<String, String> getMyMap(String mapType){
 
         switch (mapType){
  //           case "1":
-//                return new nombre SplayTree<>();
+//                return new nombre SplayTree<>();//llamar splay tree
             case "2":
                 return new HashMap1<>();
-            default:
-                return new LinkedHashMap1<>();
         }
+		return null;
 
     }
 
