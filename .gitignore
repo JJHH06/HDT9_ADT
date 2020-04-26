@@ -1,1 +1,4 @@
 /HDT9/bin/*.class
+/HDT9/.classpath
+/HDT9/.project
+/HDT9/.settings/org.eclipse.jdt.core.prefs
