@@ -1,7 +1,24 @@
+/*implementacion basica obtenida de la pagina web de archivos
+ * del libro Algorithms, 4th Edition, de Robert Sedgewick
+ * https://algs4.cs.princeton.edu/home/
+ */
+/* Esta clase se modifico para poder relizar una implementacion
+ * con ComparableAssociation mediante una clase nodo.
+ * Tambien se modificaron unas llamadas al nodo izquierdo y derecho
+*/
 
-
-public class SplayTree<Key extends Comparable<Key>, Value>  {
+/**
+ * 
+ * @author Jose Hurtarte
+ * @author Carlos Ractum
+ * @author Robert Sedgewick, Algorithms 4th edition
+ *
+ * @param <Key>, Tipo de dato de la llave del ComparableAssociaion contenido en el nodo
+ * @param <Value>, Tipo de dato del valor contenido dentro del ComparableAssociation en el nodo
+ */
+public class SplayTree<Key extends Comparable<Key>, Value> implements MyMap<Key, Value> {
 //<K extends Comparable<K>, V>
+	
     private Nodo<Key,Value> root;   // root of the BST
 
     
@@ -12,6 +29,7 @@ public class SplayTree<Key extends Comparable<Key>, Value>  {
 
     // return value associated with the given key
     // if no such value, return null
+    @Override
     public Value get(Key key) {
         root = splay(root, key);
         int cmp = key.compareTo(root.data.getKey());
@@ -19,9 +37,7 @@ public class SplayTree<Key extends Comparable<Key>, Value>  {
         else          return null;
     }    
 
-   /***************************************************************************
-    *  Splay tree insertion.
-    ***************************************************************************/
+    @Override
     public void put(Key key, Value value) {
         // splay key to root
         if (root == null) {
@@ -159,7 +175,7 @@ public class SplayTree<Key extends Comparable<Key>, Value>  {
         return 1 + Math.max(height(x.left), height(x.right));
     }
 
-    
+    @Override
     public int size() {
         return size(root);
     }
@@ -184,5 +200,18 @@ public class SplayTree<Key extends Comparable<Key>, Value>  {
         x.left = h;
         return x;
     }
+
+	@Override
+	public boolean containsKey(Key key) {
+		// TODO Auto-generated method stub
+		return contains(key);
+	}
+
+	@Override
+	public void replace(Key key, Value oldValue, Value newValue) {
+		// TODO Auto-generated method stub
+		put(key, newValue); //Se hace esto ya que la implementacion ya reemplaza si hay repetidos en put
+		
+	}
     
 }
