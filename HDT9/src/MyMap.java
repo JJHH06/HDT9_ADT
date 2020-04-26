@@ -1,5 +1,5 @@
 /**
- * @author Carlos Ráxtum 19721
+ * @author Carlos Ráxtum 
  * @author Jose Hurtarte
  *
  * @param <K> es el tipo de la key

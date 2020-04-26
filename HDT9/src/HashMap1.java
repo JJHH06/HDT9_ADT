@@ -1,6 +1,7 @@
 import java.util.HashMap;
 /**
  * @author Carlos Ráxtum 19721
+ * @author Carlos Raxtum
  * @author Jose Hurtarte
  *
  * @param <K> es el tipo de la key

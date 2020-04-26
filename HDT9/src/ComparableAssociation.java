@@ -10,14 +10,16 @@ import java.util.Map;
  * @author, Carlos Raxtum
  * @author, 2001 duane a. bailey
  */
-public class ComparableAssociation<K extends Comparable<K>, V> implements Map.Entry<K, V>{
+public class ComparableAssociation<K extends Comparable<K>> implements Comparable<K>, Map.Entry<K, K> {
+	
+	
     private K key;
-    private V value;
+    private K value;
     
     
     
 
-    public ComparableAssociation(K k, V v) {
+    public ComparableAssociation(K k, K v) {
 		// TODO Auto-generated constructor stub
     	
     	this.value = v;
@@ -25,7 +27,7 @@ public class ComparableAssociation<K extends Comparable<K>, V> implements Map.En
     	this.key = k;
 	}
     
-    
+    @Override
     public int compareTo(K comparingKey) {  //es para comparar las llaves 
         return key.compareTo(comparingKey);
     }
@@ -39,15 +41,20 @@ public class ComparableAssociation<K extends Comparable<K>, V> implements Map.En
 	}
 
 	@Override
-	public V getValue() {
+	public K getValue() {
 		// TODO Auto-generated method stub
 		return value;
 	}
 
 	@Override
-	public V setValue(V value) {
+	public K setValue(K value) {
 		this.value = value;
 		// TODO Auto-generated method stub
 		return value;
 	}
+
+	
+
+
+	
 }
